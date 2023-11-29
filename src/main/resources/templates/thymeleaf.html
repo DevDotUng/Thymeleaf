@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf</title>
+</head>
+<body>
+    <h1 th:text="${title}"></h1>
+    <h1 th:text="${colorTitle.title}" th:style="${colorTitle.color == 'red'} ? 'color:red' : 'color:black'"></h1>
+    <table>
+        <thead>
+        <tr>
+            <th>이름</th>
+            <th>사진</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dog : ${dogs}">
+            <td th:text="${dog.name}"></td>
+            <td>
+                <img th:src="${dog.image}" style="width: 100px; height: 100px">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/thymeleaf/second}">Go Second Page</a>
+</body>
+</html>
